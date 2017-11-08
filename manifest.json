@@ -8,7 +8,7 @@
       "type": "image/x-icon"
     }
   ],
-  "homepage" : "http://kanisiuskenneth.github.io/picklinik",
+  "homepage" : "https://kanisiuskenneth.github.io/picklinik",
   "start_url": "./index.html",
   "display": "standalone",
   "theme_color": "#000000",
