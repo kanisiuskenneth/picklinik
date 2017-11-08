@@ -1,4 +1,5 @@
 {
+  "homepage": "https://kanisiuskenneth.github.io/picklinik",
   "short_name": "Picklinik",
   "name": "Picklinik Online",
   "icons": [
@@ -8,7 +9,6 @@
       "type": "image/x-icon"
     }
   ],
-  "homepage" : "https://kanisiuskenneth.github.io/picklinik/",
   "start_url": "./index.html",
   "display": "standalone",
   "theme_color": "#000000",
