@@ -2,27 +2,54 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.App {
+  height: 100vh;
 }
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
 .App-intro {
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.login-page{
+  background: #4CAF50;
+  height: 100%;
+  width: 100%;
+  font-family: Roboto, sans-serif;
+  position: fixed;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(24, 1fr);
+  .logo-container {
+    grid-column: 1/13;
+    grid-row: 2/8;
+    object-fit: contain;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    align-self: center;
+    height: 100%;
+  }
+  .inner-grid {
+    grid-row: 10 / 25;
+    grid-column: 1/13;
+    display: inherit;
+    grid-template-columns: inherit;
+    grid-template-rows: repeat(12, 1fr);
+  }
+  .title {
+    grid-row: 8;
+    grid-column: 1/13;
+    justify-content: center;
+    justify-self: center;
+    font-size: 1.5rem;
+    color: white;
+  }
+
+  .one-row {
+    justify-self: center;
+    text-align: center;
+    grid-column: 1/13;
+  }
+  .form-login {
+    grid-row: 10 / 25;
+  }
 }
