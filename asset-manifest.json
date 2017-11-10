@@ -1,10 +1,10 @@
 {
-  "main.css": "static/css/main.1ed667f7.css",
-  "main.css.map": "static/css/main.1ed667f7.css.map",
-  "main.js": "static/js/main.12ccd51a.js",
-  "main.js.map": "static/js/main.12ccd51a.js.map",
+  "main.css": "static/css/main.ec60f60d.css",
+  "main.css.map": "static/css/main.ec60f60d.css.map",
+  "main.js": "static/js/main.6a0321dc.js",
+  "main.js.map": "static/js/main.6a0321dc.js.map",
   "static/media/Flaticon.eot": "static/media/Flaticon.cbdd0066.eot",
-  "static/media/Flaticon.svg": "static/media/Flaticon.a7ee6679.svg",
+  "static/media/Flaticon.svg": "static/media/Flaticon.f1391cf2.svg",
   "static/media/Flaticon.ttf": "static/media/Flaticon.e2c7f5a7.ttf",
   "static/media/Flaticon.woff": "static/media/Flaticon.11ffda24.woff",
   "static/media/MaterialIcons-Regular.eot": "static/media/MaterialIcons-Regular.e79bfd88.eot",
@@ -70,5 +70,6 @@
   "static/media/Roboto-ThinItalic.svg": "static/media/Roboto-ThinItalic.21e9a2e5.svg",
   "static/media/Roboto-ThinItalic.ttf": "static/media/Roboto-ThinItalic.11b5cc95.ttf",
   "static/media/Roboto-ThinItalic.woff": "static/media/Roboto-ThinItalic.58829329.woff",
-  "static/media/Roboto-ThinItalic.woff2": "static/media/Roboto-ThinItalic.8a2c1a5d.woff2"
+  "static/media/Roboto-ThinItalic.woff2": "static/media/Roboto-ThinItalic.8a2c1a5d.woff2",
+  "static/media/logo.png": "static/media/logo.2b2fe2b7.png"
 }
