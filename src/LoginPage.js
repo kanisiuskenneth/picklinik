@@ -7,6 +7,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import firebase from 'firebase';
+
 const muiTheme = getMuiTheme({
     palette: {
         primary1Color: grey50,
@@ -24,9 +25,9 @@ class LoginPage extends React.Component {
     };
 
     componentDidMount() {
-        firebase.auth().onAuthStateChanged(function (user) {
+        firebase.auth().onAuthStateChanged((user) => {
             if (user) {
-                window.location = "/#/"
+               this.props.history.push("/")
             } else {
 
             }

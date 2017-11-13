@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './App.css';
-import {cyan500,lightblue500, greenA400, green500} from 'material-ui/styles/colors';
+import {green500, lightblue500} from 'material-ui/styles/colors';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import AppBar from 'material-ui/AppBar';
@@ -43,11 +43,14 @@ class App extends Component {
         this.setState({drawerOpen: !this.state.drawerOpen})
     };
     componentDidMount() {
-        firebase.auth().onAuthStateChanged(function (user) {
-                if (!user) {
-                    window.location = "/#/login";
-                }
-            })
+        firebase.auth().onAuthStateChanged( (user) => {
+            if (!user) {
+                this.props.history.push('login');
+            }
+        })
+        firebase.database().ref('/medicines').on("value", (snapshot) => {
+            console.log(snapshot.val());
+        });
     }
 
   render() {
@@ -70,7 +73,7 @@ class App extends Component {
                 <Drawer
                     docked={false}
                     width={200}
-                    children={<DrawerComponent backToggle={this.toggleDrawer}/>}
+                    children={<DrawerComponent backToggle={this.toggleDrawer} {...this.props} />}
                     open={this.state.drawerOpen}
                     onRequestChange={(drawerOpen) => this.setState({drawerOpen})}
                 />

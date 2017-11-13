@@ -12,8 +12,8 @@ class DrawerComponent extends React.Component{
     };
 
     logOutHandler = () => {
-        firebase.auth().signOut().then(function() {
-            window.location = "/"
+        firebase.auth().signOut().then(() => {
+            this.props.history.push("login")
         }, function(error) {
             // An error happened.
         });

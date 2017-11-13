@@ -1,5 +1,5 @@
 import React from 'react';
-import {Tabs, Tab} from 'material-ui/Tabs';
+import {Tab, Tabs} from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
 import FontIcon from 'material-ui/FontIcon';
 
@@ -123,7 +123,7 @@ export default class SwipeableTabs extends React.Component {
                     index={this.state.slideIndex}
                     onChangeIndex={this.handleChange}
                 >
-                    <div>
+                    <div style={styles.slide}>
                         <AntreanPage {...this.props}/>
                     </div>
                     <div style={styles.slide}>
