@@ -1,17 +1,4 @@
 import React from 'react';
-import {
-    Table,
-    TableBody,
-    TableFooter,
-    TableHeader,
-    TableHeaderColumn,
-    TableRow,
-    TableRowColumn
-} from 'material-ui/Table';
-import {green500,grey500} from 'material-ui/styles/colors'
-import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
-import Dialog from 'material-ui/Dialog';
 import JadwalKlinik from "./JadwalKlinik";
 import JadwalDokter from "./JadwalDokter";
 

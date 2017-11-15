@@ -1,9 +1,12 @@
 import React from 'react';
-import {Table, TableBody, TableHeader, TableRow, TableRowColumn} from 'material-ui/Table';
+import Avatar from 'material-ui/Avatar';
 import {green500, grey500} from 'material-ui/styles/colors'
 import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
 import Dialog from 'material-ui/Dialog';
+import johnDoe from '../res/images/1_widget_john-doe.png';
+import FontIcon from 'material-ui/FontIcon'
+import {Table, TableBody, TableHeader, TableRow, TableRowColumn} from 'material-ui/Table';
+
 
 const styles = {
     cell : {background: green500, opacity: 0.6, borderLeft: '0.5px solid lightgrey', borderRight: '0.5px solid lightgrey', padding: 0, height: 15},
@@ -12,22 +15,21 @@ const styles = {
     rowStyles : {height: 15},
     clockStyle: {width: 70, height: 15},
     topRowCell: {textAlign: 'center', paddingLeft: 'none', paddingRight: 'none'}
-}
+};
 
-
-class JadwalKlinik extends React.Component {
+class JadwalDokterList extends React.Component {
     state = {
-        open: false
+        open: false,
     };
+
+    handleClose = (e) => {
+        this.setState({open: false});
+    };
+
     handleCellClick = (e) => {
         this.setState({open: true})
     };
-    handleClose = () => {
-        this.setState({open: false});
-    };
-    componentDidMount() {
-        console.log(this.props)
-    }
+
     render() {
         const actions = [
             <FlatButton
@@ -42,18 +44,31 @@ class JadwalKlinik extends React.Component {
                 onClick={this.handleClose}
             />,
         ];
-
         return(
             <div>
-                <h2 style={{margin: 5}}>Jadwal Klinik</h2>
+                <div style={{width: '100%', textAlign: 'left'}}>
+                <FlatButton
+                    target="_blank"
+                    style={{textAlign: 'left'}}
+                    label="Kembali"
+                    icon={<FontIcon className="material-icons">arrow_back</FontIcon>}
+                    onClick={this.props.showListDokter}
+                />
+                </div>
+                <div>
+                    <Avatar src={johnDoe} size={96}/>
+                </div>
+                <div>
+                    <h3 style={{margin: 0}}>John Doe</h3>
+                </div>
                 <div
-                    style={{width: window.innerWidth-20, height: 390, overflow: 'scroll'}}
+                    style={{width: window.innerWidth-20, height: 400, overflow: 'scroll'}}
                 >
                     <Table
                         wrapperStyle={{width: 500, overflow: 'scroll'}}
                         fixedHeader= {true}
                         fixedFooter={true}
-                        onCellClick= {(row) => console.log(row)}
+                        striped
                     >
                         <TableHeader
                             displaySelectAll={false}
@@ -63,14 +78,14 @@ class JadwalKlinik extends React.Component {
                         >
                             <TableRow
                                 selectable={false}>
-                                <TableRowColumn style={{width:70}} />
-                                <TableRowColumn style={styles.topRowCell}>Sen</TableRowColumn>
-                                <TableRowColumn style={styles.topRowCell}>Sel</TableRowColumn>
-                                <TableRowColumn style={styles.topRowCell}>Rab</TableRowColumn>
-                                <TableRowColumn style={styles.topRowCell}>Kam</TableRowColumn>
-                                <TableRowColumn style={styles.topRowCell}>Jum</TableRowColumn>
-                                <TableRowColumn style={styles.topRowCell}>Sab</TableRowColumn>
-                                <TableRowColumn style={styles.topRowCell}>Min</TableRowColumn>
+                                <TableRowColumn style={{width:100}} />
+                                <TableRowColumn>Sen</TableRowColumn>
+                                <TableRowColumn>Sel</TableRowColumn>
+                                <TableRowColumn>Rab</TableRowColumn>
+                                <TableRowColumn>Kam</TableRowColumn>
+                                <TableRowColumn>Jum</TableRowColumn>
+                                <TableRowColumn>Sab</TableRowColumn>
+                                <TableRowColumn>Min</TableRowColumn>
                             </TableRow>
                         </TableHeader>
                         <TableBody
@@ -247,23 +262,23 @@ class JadwalKlinik extends React.Component {
                                 selectable={false}
                             >
                                 <TableRowColumn style={styles.clockStyle}>13.00-14.00</TableRowColumn>
-                                <TableRowColumn style={styles.cell}>
-                                    <FlatButton fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
+                                <TableRowColumn style={styles.cellDeactivated}>
+                                    <FlatButton disabled={true} fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
                                 </TableRowColumn>
-                                <TableRowColumn style={styles.cell}>
-                                    <FlatButton fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
+                                <TableRowColumn style={styles.cellDeactivated}>
+                                    <FlatButton disabled={true} fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
                                 </TableRowColumn>
-                                <TableRowColumn style={styles.cell}>
-                                    <FlatButton fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
+                                <TableRowColumn style={styles.cellDeactivated}>
+                                    <FlatButton disabled={true} fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
                                 </TableRowColumn>
-                                <TableRowColumn style={styles.cell}>
-                                    <FlatButton fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
+                                <TableRowColumn style={styles.cellDeactivated}>
+                                    <FlatButton disabled={true} fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
                                 </TableRowColumn>
-                                <TableRowColumn style={styles.cell}>
-                                    <FlatButton fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
+                                <TableRowColumn style={styles.cellDeactivated}>
+                                    <FlatButton disabled={true} fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
                                 </TableRowColumn>
-                                <TableRowColumn style={styles.cell}>
-                                    <FlatButton fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
+                                <TableRowColumn style={styles.cellDeactivated}>
+                                    <FlatButton disabled={true} fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
                                 </TableRowColumn>
                                 <TableRowColumn style={styles.cellDeactivated}>
                                     <FlatButton disabled={true} fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
@@ -274,23 +289,23 @@ class JadwalKlinik extends React.Component {
                                 selectable={false}
                             >
                                 <TableRowColumn style={styles.clockStyle}>14.00-15.00</TableRowColumn>
-                                <TableRowColumn style={styles.cell}>
-                                    <FlatButton fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
+                                <TableRowColumn style={styles.cellDeactivated}>
+                                    <FlatButton disabled={true} fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
                                 </TableRowColumn>
-                                <TableRowColumn style={styles.cell}>
-                                    <FlatButton fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
+                                <TableRowColumn style={styles.cellDeactivated}>
+                                    <FlatButton disabled={true} fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
                                 </TableRowColumn>
-                                <TableRowColumn style={styles.cell}>
-                                    <FlatButton fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
+                                <TableRowColumn style={styles.cellDeactivated}>
+                                    <FlatButton disabled={true} fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
                                 </TableRowColumn>
-                                <TableRowColumn style={styles.cell}>
-                                    <FlatButton fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
+                                <TableRowColumn style={styles.cellDeactivated}>
+                                    <FlatButton disabled={true} fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
                                 </TableRowColumn>
-                                <TableRowColumn style={styles.cell}>
-                                    <FlatButton fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
+                                <TableRowColumn style={styles.cellDeactivated}>
+                                    <FlatButton disabled={true} fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
                                 </TableRowColumn>
-                                <TableRowColumn style={styles.cell}>
-                                    <FlatButton fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
+                                <TableRowColumn style={styles.cellDeactivated}>
+                                    <FlatButton disabled={true} fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
                                 </TableRowColumn>
                                 <TableRowColumn style={styles.cellDeactivated}>
                                     <FlatButton disabled={true} fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
@@ -301,23 +316,23 @@ class JadwalKlinik extends React.Component {
                                 selectable={false}
                             >
                                 <TableRowColumn style={styles.clockStyle}>15.00-16.00</TableRowColumn>
-                                <TableRowColumn style={styles.cell}>
-                                    <FlatButton fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
+                                <TableRowColumn style={styles.cellDeactivated}>
+                                    <FlatButton disabled={true} fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
                                 </TableRowColumn>
-                                <TableRowColumn style={styles.cell}>
-                                    <FlatButton fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
+                                <TableRowColumn style={styles.cellDeactivated}>
+                                    <FlatButton disabled={true} fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
                                 </TableRowColumn>
-                                <TableRowColumn style={styles.cell}>
-                                    <FlatButton fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
+                                <TableRowColumn style={styles.cellDeactivated}>
+                                    <FlatButton disabled={true} fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
                                 </TableRowColumn>
-                                <TableRowColumn style={styles.cell}>
-                                    <FlatButton fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
+                                <TableRowColumn style={styles.cellDeactivated}>
+                                    <FlatButton disabled={true} fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
                                 </TableRowColumn>
-                                <TableRowColumn style={styles.cell}>
-                                    <FlatButton fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
+                                <TableRowColumn style={styles.cellDeactivated}>
+                                    <FlatButton disabled={true} fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
                                 </TableRowColumn>
-                                <TableRowColumn style={styles.cell}>
-                                    <FlatButton fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
+                                <TableRowColumn style={styles.cellDeactivated}>
+                                    <FlatButton disabled={true} fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
                                 </TableRowColumn>
                                 <TableRowColumn style={styles.cellDeactivated}>
                                     <FlatButton disabled={true} fullWidth={true} onClick={this.handleCellClick} style={styles.cellButton}>&nbsp;</FlatButton>
@@ -326,31 +341,18 @@ class JadwalKlinik extends React.Component {
                         </TableBody>
                     </Table>
                 </div>
-                <RaisedButton
-                    primary={true}
-                    fullWidth={true}
-                    style={{marginTop: 10}}
-                    onClick={this.props.showJadwalDokter}
-                    labelColor={"white"}
-                    label={"Jadwal Dokter"}
-                />
-
-                <div>
-                    <Dialog
-                        title="Reservasi Jadwal Poliklinik"
-                        actions={actions}
-                        modal={false}
-                        open={this.state.open}
-                        onRequestClose={this.handleClose}
-                    >
-                        Apakah anda ingin mereservasi Poliklinik pada pukul 07.00 hari Senin
-                    </Dialog>
-                </div>
-
+                <Dialog
+                    title="Reservasi Jadwal Poliklinik"
+                    actions={actions}
+                    modal={false}
+                    open={this.state.open}
+                    onRequestClose={this.handleClose}
+                >
+                    Apakah anda ingin reservasi bertemu dengan dr. John Doe pada pukul 07.00 hari Senin
+                </Dialog>
             </div>
-
         );
     }
 }
 
-export default JadwalKlinik;
+export default JadwalDokterList;

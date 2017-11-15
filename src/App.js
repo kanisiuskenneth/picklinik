@@ -46,10 +46,9 @@ class App extends Component {
         firebase.auth().onAuthStateChanged( (user) => {
             if (!user) {
                 this.props.history.push('login');
+            } else {
+                console.log(user);
             }
-        })
-        firebase.database().ref('/medicines').on("value", (snapshot) => {
-            console.log(snapshot.val());
         });
     }
 

@@ -1,8 +1,7 @@
 import React from 'react';
 import SearchBar from 'material-ui-search-bar';
-import {GridList, GridTile} from 'material-ui/GridList';
-import IconButton from 'material-ui/IconButton';
-import FontIcon from 'material-ui/FontIcon';
+import {GridList} from 'material-ui/GridList';
+
 const styles= {
     gridList: {
         width: 400,
