@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<!-- saved from url=(0080)http://localhost:3000/#/booking?day="Senin"&time="07.00"&instance="dr. John Doe" -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+    -->
+    <link rel="manifest" href="http://localhost:3000/manifest.json">
+    <meta name="theme-color" content="#4CAF50">
+
+    <link rel="shortcut icon" href="http://localhost:3000/favicon.ico">
+    <!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+
+    <title>Picklinik</title>
+
+  <style type="text/css">body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+</style><style type="text/css">.App {
+  text-align: center; }
+
+.App {
+  height: 100vh; }
+
+.App-intro {
+  font-size: large; }
+
+.login-page {
+  background: #4CAF50;
+  height: 100%;
+  width: 100%;
+  font-family: Roboto, sans-serif;
+  position: fixed;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(24, 1fr); }
+  .login-page .logo-container {
+    grid-column: 1/13;
+    grid-row: 2/8;
+    -o-object-fit: contain;
+       object-fit: contain;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    justify-self: center;
+    -ms-flex-item-align: center;
+        align-self: center;
+    height: 100%; }
+  .login-page .inner-grid {
+    grid-row: 10 / 25;
+    grid-column: 1/13;
+    display: inherit;
+    grid-template-columns: inherit;
+    grid-template-rows: repeat(12, 1fr); }
+  .login-page .title {
+    grid-row: 8;
+    grid-column: 1/13;
+    -ms-flex-pack: center;
+        justify-content: center;
+    justify-self: center;
+    font-size: 1.5rem;
+    color: white; }
+  .login-page .one-row {
+    justify-self: center;
+    text-align: center;
+    grid-column: 1/13; }
+  .login-page .form-login {
+    grid-row: 10 / 25; }
+</style><style type="text/css">	/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 07/11/2017 17:25
+  	*/
+
+@font-face {
+  font-family: "Flaticon";
+  src: url(/static/media/Flaticon.cbdd0066.eot);
+  src: url(/static/media/Flaticon.cbdd0066.eot?#iefix) format("embedded-opentype"),
+       url(/static/media/Flaticon.11ffda24.woff) format("woff"),
+       url(/static/media/Flaticon.e2c7f5a7.ttf) format("truetype"),
+       url(/static/media/Flaticon.f1391cf2.svg#Flaticon) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url(/static/media/Flaticon.f1391cf2.svg#Flaticon) format("svg");
+  }
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {
+    font-family: Flaticon;
+    font-size: 20px;
+    font-style: normal;
+
+}
+
+.flaticon-tablet-and-pill:before { content: "\F100"; }
+.flaticon-medical-history:before { content: "\F101"; }
+.flaticon-line:before { content: "\F102"; }
+.flaticon-calendar:before { content: "\F103"; }</style><style type="text/css">#swipey {
+	visibility: hidden;
+}
+
+#daftarButton {
+}</style><style type="text/css">@font-face {
+    font-family: 'Roboto';
+    src: url(/static/media/Roboto-Thin.c25fd8d0.eot);
+    src: local('Roboto Thin'), local('Roboto-Thin'), url(/static/media/Roboto-Thin.c25fd8d0.eot?#iefix) format('embedded-opentype'), url(/static/media/Roboto-Thin.790ebf41.woff2) format('woff2'), url(/static/media/Roboto-Thin.90d3804f.woff) format('woff'), url(/static/media/Roboto-Thin.cc85ce37.ttf) format('truetype'), url(/static/media/Roboto-Thin.ba422f71.svg#Roboto) format('svg');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto-Thin';
+    src: url(/static/media/Roboto-Thin.c25fd8d0.eot);
+    src: local('Roboto Thin'), local('Roboto-Thin'), url(/static/media/Roboto-Thin.c25fd8d0.eot?#iefix) format('embedded-opentype'), url(/static/media/Roboto-Thin.790ebf41.woff2) format('woff2'), url(/static/media/Roboto-Thin.90d3804f.woff) format('woff'), url(/static/media/Roboto-Thin.cc85ce37.ttf) format('truetype'), url(/static/media/Roboto-Thin.ba422f71.svg#Roboto) format('svg');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url(/static/media/Roboto-ThinItalic.64ca718f.eot);
+    src: local('Roboto ThinItalic'), local('Roboto-ThinItalic'), url(/static/media/Roboto-ThinItalic.64ca718f.eot?#iefix) format('embedded-opentype'), url(/static/media/Roboto-ThinItalic.8a2c1a5d.woff2) format('woff2'), url(/static/media/Roboto-ThinItalic.58829329.woff) format('woff'), url(/static/media/Roboto-ThinItalic.11b5cc95.ttf) format('truetype'), url(/static/media/Roboto-ThinItalic.21e9a2e5.svg#Roboto) format('svg');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Roboto-ThinItalic';
+    src: url(/static/media/Roboto-ThinItalic.64ca718f.eot);
+    src: local('Roboto ThinItalic'), local('Roboto-ThinItalic'), url(/static/media/Roboto-ThinItalic.64ca718f.eot?#iefix) format('embedded-opentype'), url(/static/media/Roboto-ThinItalic.8a2c1a5d.woff2) format('woff2'), url(/static/media/Roboto-ThinItalic.58829329.woff) format('woff'), url(/static/media/Roboto-ThinItalic.11b5cc95.ttf) format('truetype'), url(/static/media/Roboto-ThinItalic.21e9a2e5.svg#Roboto) format('svg');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url(/static/media/Roboto-Light.18307918.eot);
+    src: local('Roboto Light'), local('Roboto-Light'), url(/static/media/Roboto-Light.18307918.eot?#iefix) format('embedded-opentype'), url(/static/media/Roboto-Light.8e0860f3.woff2) format('woff2'), url(/static/media/Roboto-Light.37fbbbad.woff) format('woff'), url(/static/media/Roboto-Light.a2b8c641.ttf) format('truetype'), url(/static/media/Roboto-Light.054fa50b.svg#Roboto) format('svg');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto-Light';
+    src: url(/static/media/Roboto-Light.18307918.eot);
+    src: local('Roboto Light'), local('Roboto-Light'), url(/static/media/Roboto-Light.18307918.eot?#iefix) format('embedded-opentype'), url(/static/media/Roboto-Light.8e0860f3.woff2) format('woff2'), url(/static/media/Roboto-Light.37fbbbad.woff) format('woff'), url(/static/media/Roboto-Light.a2b8c641.ttf) format('truetype'), url(/static/media/Roboto-Light.054fa50b.svg#Roboto) format('svg');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url(/static/media/Roboto-LightItalic.cdd1c486.eot);
+    src: local('Roboto LightItalic'), local('Roboto-LightItalic'), url(/static/media/Roboto-LightItalic.cdd1c486.eot?#iefix) format('embedded-opentype'), url(/static/media/Roboto-LightItalic.879d940b.woff2) format('woff2'), url(/static/media/Roboto-LightItalic.c7b4e746.woff) format('woff'), url(/static/media/Roboto-LightItalic.056caeab.ttf) format('truetype'), url(/static/media/Roboto-LightItalic.1a9e39e5.svg#Roboto) format('svg');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Roboto-LightItalic';
+    src: url(/static/media/Roboto-LightItalic.cdd1c486.eot);
+    src: local('Roboto LightItalic'), local('Roboto-LightItalic'), url(/static/media/Roboto-LightItalic.cdd1c486.eot?#iefix) format('embedded-opentype'), url(/static/media/Roboto-LightItalic.879d940b.woff2) format('woff2'), url(/static/media/Roboto-LightItalic.c7b4e746.woff) format('woff'), url(/static/media/Roboto-LightItalic.056caeab.ttf) format('truetype'), url(/static/media/Roboto-LightItalic.1a9e39e5.svg#Roboto) format('svg');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url(/static/media/Roboto-Regular.6a561d68.eot);
+    src: local('Roboto Regular'), local('Roboto-Regular'), url(/static/media/Roboto-Regular.6a561d68.eot?#iefix) format('embedded-opentype'), url(/static/media/Roboto-Regular.b2a6341a.woff2) format('woff2'), url(/static/media/Roboto-Regular.081b11eb.woff) format('woff'), url(/static/media/Roboto-Regular.99b14f0d.ttf) format('truetype'), url(/static/media/Roboto-Regular.766c8926.svg#Roboto) format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto-Regular';
+    src: url(/static/media/Roboto-Regular.6a561d68.eot);
+    src: local('Roboto Regular'), local('Roboto-Regular'), url(/static/media/Roboto-Regular.6a561d68.eot?#iefix) format('embedded-opentype'), url(/static/media/Roboto-Regular.b2a6341a.woff2) format('woff2'), url(/static/media/Roboto-Regular.081b11eb.woff) format('woff'), url(/static/media/Roboto-Regular.99b14f0d.ttf) format('truetype'), url(/static/media/Roboto-Regular.766c8926.svg#Roboto) format('svg');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url(/static/media/Roboto-RegularItalic.f3660f49.eot);
+    src: local('Roboto RegularItalic'), local('Roboto-RegularItalic'), url(/static/media/Roboto-RegularItalic.f3660f49.eot?#iefix) format('embedded-opentype'), url(/static/media/Roboto-RegularItalic.df8e3a9b.woff2) format('woff2'), url(/static/media/Roboto-RegularItalic.8add1ba3.woff) format('woff'), url(/static/media/Roboto-RegularItalic.90dbf902.ttf) format('truetype'), url(/static/media/Roboto-RegularItalic.527502d7.svg#Roboto) format('svg');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Roboto-RegularItalic';
+    src: url(/static/media/Roboto-RegularItalic.f3660f49.eot);
+    src: local('Roboto RegularItalic'), local('Roboto-RegularItalic'), url(/static/media/Roboto-RegularItalic.f3660f49.eot?#iefix) format('embedded-opentype'), url(/static/media/Roboto-RegularItalic.df8e3a9b.woff2) format('woff2'), url(/static/media/Roboto-RegularItalic.8add1ba3.woff) format('woff'), url(/static/media/Roboto-RegularItalic.90dbf902.ttf) format('truetype'), url(/static/media/Roboto-RegularItalic.527502d7.svg#Roboto) format('svg');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url(/static/media/Roboto-Medium.76cad5ba.eot);
+    src: local('Roboto Medium'), local('Roboto-Medium'), url(/static/media/Roboto-Medium.76cad5ba.eot?#iefix) format('embedded-opentype'), url(/static/media/Roboto-Medium.2741a14e.woff2) format('woff2'), url(/static/media/Roboto-Medium.303ded64.woff) format('woff'), url(/static/media/Roboto-Medium.c54f2a3e.ttf) format('truetype'), url(/static/media/Roboto-Medium.2b4f394c.svg#Roboto) format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto-Medium';
+    src: url(/static/media/Roboto-Medium.76cad5ba.eot);
+    src: local('Roboto Medium'), local('Roboto-Medium'), url(/static/media/Roboto-Medium.76cad5ba.eot?#iefix) format('embedded-opentype'), url(/static/media/Roboto-Medium.2741a14e.woff2) format('woff2'), url(/static/media/Roboto-Medium.303ded64.woff) format('woff'), url(/static/media/Roboto-Medium.c54f2a3e.ttf) format('truetype'), url(/static/media/Roboto-Medium.2b4f394c.svg#Roboto) format('svg');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url(/static/media/Roboto-MediumItalic.7a49ce79.eot);
+    src: local('Roboto MediumItalic'), local('Roboto-MediumItalic'), url(/static/media/Roboto-MediumItalic.7a49ce79.eot?#iefix) format('embedded-opentype'), url(/static/media/Roboto-MediumItalic.f10d1f42.woff2) format('woff2'), url(/static/media/Roboto-MediumItalic.da059a73.woff) format('woff'), url(/static/media/Roboto-MediumItalic.fa183350.ttf) format('truetype'), url(/static/media/Roboto-MediumItalic.eb65fb18.svg#Roboto) format('svg');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Roboto-MediumItalic';
+    src: url(/static/media/Roboto-MediumItalic.7a49ce79.eot);
+    src: local('Roboto MediumItalic'), local('Roboto-MediumItalic'), url(/static/media/Roboto-MediumItalic.7a49ce79.eot?#iefix) format('embedded-opentype'), url(/static/media/Roboto-MediumItalic.f10d1f42.woff2) format('woff2'), url(/static/media/Roboto-MediumItalic.da059a73.woff) format('woff'), url(/static/media/Roboto-MediumItalic.fa183350.ttf) format('truetype'), url(/static/media/Roboto-MediumItalic.eb65fb18.svg#Roboto) format('svg');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url(/static/media/Roboto-Bold.c8bcb1cb.eot);
+    src: local('Roboto Bold'), local('Roboto-Bold'), url(/static/media/Roboto-Bold.c8bcb1cb.eot?#iefix) format('embedded-opentype'), url(/static/media/Roboto-Bold.ab96cca2.woff2) format('woff2'), url(/static/media/Roboto-Bold.ad140ff0.woff) format('woff'), url(/static/media/Roboto-Bold.56a76a22.ttf) format('truetype'), url(/static/media/Roboto-Bold.c7f4667b.svg#Roboto) format('svg');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto-Bold';
+    src: url(/static/media/Roboto-Bold.c8bcb1cb.eot);
+    src: local('Roboto Bold'), local('Roboto-Bold'), url(/static/media/Roboto-Bold.c8bcb1cb.eot?#iefix) format('embedded-opentype'), url(/static/media/Roboto-Bold.ab96cca2.woff2) format('woff2'), url(/static/media/Roboto-Bold.ad140ff0.woff) format('woff'), url(/static/media/Roboto-Bold.56a76a22.ttf) format('truetype'), url(/static/media/Roboto-Bold.c7f4667b.svg#Roboto) format('svg');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url(/static/media/Roboto-BoldItalic.4b2cc52b.eot);
+    src: local('Roboto BoldItalic'), local('Roboto-BoldItalic'), url(/static/media/Roboto-BoldItalic.4b2cc52b.eot?#iefix) format('embedded-opentype'), url(/static/media/Roboto-BoldItalic.355e3887.woff2) format('woff2'), url(/static/media/Roboto-BoldItalic.a7dce23c.woff) format('woff'), url(/static/media/Roboto-BoldItalic.d23d5bda.ttf) format('truetype'), url(/static/media/Roboto-BoldItalic.c2e0f75d.svg#Roboto) format('svg');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Roboto-BoldItalic';
+    src: url(/static/media/Roboto-BoldItalic.4b2cc52b.eot);
+    src: local('Roboto BoldItalic'), local('Roboto-BoldItalic'), url(/static/media/Roboto-BoldItalic.4b2cc52b.eot?#iefix) format('embedded-opentype'), url(/static/media/Roboto-BoldItalic.355e3887.woff2) format('woff2'), url(/static/media/Roboto-BoldItalic.a7dce23c.woff) format('woff'), url(/static/media/Roboto-BoldItalic.d23d5bda.ttf) format('truetype'), url(/static/media/Roboto-BoldItalic.c2e0f75d.svg#Roboto) format('svg');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url(/static/media/Roboto-Black.2a82f89b.eot);
+    src: local('Roboto Black'), local('Roboto-Black'), url(/static/media/Roboto-Black.2a82f89b.eot?#iefix) format('embedded-opentype'), url(/static/media/Roboto-Black.2b8d6922.woff2) format('woff2'), url(/static/media/Roboto-Black.4c3b6229.woff) format('woff'), url(/static/media/Roboto-Black.44236ad5.ttf) format('truetype'), url(/static/media/Roboto-Black.ab04c761.svg#Roboto) format('svg');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto-Black';
+    src: url(/static/media/Roboto-Black.2a82f89b.eot);
+    src: local('Roboto Black'), local('Roboto-Black'), url(/static/media/Roboto-Black.2a82f89b.eot?#iefix) format('embedded-opentype'), url(/static/media/Roboto-Black.2b8d6922.woff2) format('woff2'), url(/static/media/Roboto-Black.4c3b6229.woff) format('woff'), url(/static/media/Roboto-Black.44236ad5.ttf) format('truetype'), url(/static/media/Roboto-Black.ab04c761.svg#Roboto) format('svg');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url(/static/media/Roboto-BlackItalic.4b7407c6.eot);
+    src: local('Roboto BlackItalic'), local('Roboto-BlackItalic'), url(/static/media/Roboto-BlackItalic.4b7407c6.eot?#iefix) format('embedded-opentype'), url(/static/media/Roboto-BlackItalic.38d14dd4.woff2) format('woff2'), url(/static/media/Roboto-BlackItalic.3a99796b.woff) format('woff'), url(/static/media/Roboto-BlackItalic.ad0f284c.ttf) format('truetype'), url(/static/media/Roboto-BlackItalic.1f37c754.svg#Roboto) format('svg');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Roboto-BlackItalic';
+    src: url(/static/media/Roboto-BlackItalic.4b7407c6.eot);
+    src: local('Roboto BlackItalic'), local('Roboto-BlackItalic'), url(/static/media/Roboto-BlackItalic.4b7407c6.eot?#iefix) format('embedded-opentype'), url(/static/media/Roboto-BlackItalic.38d14dd4.woff2) format('woff2'), url(/static/media/Roboto-BlackItalic.3a99796b.woff) format('woff'), url(/static/media/Roboto-BlackItalic.ad0f284c.ttf) format('truetype'), url(/static/media/Roboto-BlackItalic.1f37c754.svg#Roboto) format('svg');
+}
+</style><style type="text/css">@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/static/media/MaterialIcons-Regular.e79bfd88.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url(/static/media/MaterialIcons-Regular.570eb838.woff2) format('woff2'),
+       url(/static/media/MaterialIcons-Regular.012cf6a1.woff) format('woff'),
+       url(/static/media/MaterialIcons-Regular.a37b0c01.ttf) format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  -webkit-font-feature-settings: 'liga';
+          font-feature-settings: 'liga';
+}
+</style></head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"><div class="booking-page"><div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; position: fixed; width: 100%; height: 100%; background: rgb(200, 230, 201);">"Senin"</div></div></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  <script type="text/javascript" src="./Picklinik_files/bundle.js"></script>
+
+
+</body></html>

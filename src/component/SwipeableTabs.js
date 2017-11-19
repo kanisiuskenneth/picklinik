@@ -105,7 +105,7 @@ export default class SwipeableTabs extends React.Component {
     render() {
         return (
             <div>
-                <Tabs inkBarStyle={{background: '#7C4F29'}} style={{opacity: 1}}
+                <Tabs inkBarStyle={{}} style={{opacity: 1}}
                       onChange={this.handleChange}
                       value={this.state.slideIndex}
                 >

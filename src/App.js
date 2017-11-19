@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import {green500, lightblue500} from 'material-ui/styles/colors';
+import {green500, brown500} from 'material-ui/styles/colors';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import AppBar from 'material-ui/AppBar';
@@ -16,7 +16,8 @@ import firebase from 'firebase';
 
 const muiTheme = getMuiTheme({
   palette: {
-    primary1Color: green500,
+      primary1Color: green500,
+      accent1Color: brown500,
   },
   appBar: {
     height: 50,
@@ -47,7 +48,6 @@ class App extends Component {
             if (!user) {
                 this.props.history.push('login');
             } else {
-                console.log(user);
             }
         });
     }

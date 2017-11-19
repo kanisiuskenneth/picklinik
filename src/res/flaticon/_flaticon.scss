@@ -1,6 +1,6 @@
     /*
     Flaticon icon font: Flaticon
-    Creation date: 07/11/2017 17:25
+    Creation date: 19/11/2017 13:07
     */
 
     @font-face {
@@ -36,12 +36,20 @@
   font-smoothing: antialiased;
     }
 
-    .flaticon-tablet-and-pill:before { content: "\f100"; }
+    .flaticon-add-to-shopping-cart:before { content: "\f100"; }
 .flaticon-medical-history:before { content: "\f101"; }
 .flaticon-line:before { content: "\f102"; }
-.flaticon-calendar:before { content: "\f103"; }
+.flaticon-open-book:before { content: "\f103"; }
+.flaticon-checked:before { content: "\f104"; }
+.flaticon-tablet-and-pill:before { content: "\f105"; }
+.flaticon-calendar:before { content: "\f106"; }
+.flaticon-stethoscope:before { content: "\f107"; }
     
-    $font-Flaticon-tablet-and-pill: "\f100";
+    $font-Flaticon-add-to-shopping-cart: "\f100";
     $font-Flaticon-medical-history: "\f101";
     $font-Flaticon-line: "\f102";
-    $font-Flaticon-calendar: "\f103";
+    $font-Flaticon-open-book: "\f103";
+    $font-Flaticon-checked: "\f104";
+    $font-Flaticon-tablet-and-pill: "\f105";
+    $font-Flaticon-calendar: "\f106";
+    $font-Flaticon-stethoscope: "\f107";

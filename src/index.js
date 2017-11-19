@@ -6,7 +6,7 @@ import registerServiceWorker from './registerServiceWorker';
 import {HashRouter, Route, Switch} from 'react-router-dom'
 import firebase from "firebase";
 import LoginPage from './LoginPage';
-
+import BookingInProgress from './component/BookingInProgress'
 
 var config = {
     apiKey: "AIzaSyCOf4z8rA3_8xX3Vd0TviwtLy5-mQSxR14",
@@ -23,6 +23,7 @@ ReactDOM.render(
     <HashRouter basename={'/'}>
         <Switch>
             <Route component={LoginPage} exact path={'/login'} />
+            <Route component={BookingInProgress} path={'/booking'} />
             <Route component={App}/>
         </Switch>
     </HashRouter>, document.getElementById('root'));

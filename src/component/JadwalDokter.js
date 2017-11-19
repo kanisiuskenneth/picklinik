@@ -14,9 +14,8 @@ const styles = {
 
 class JadwalDokter extends React.Component {
 
-    showDokterDetail = () => {
-        console.log("this called");
-        this.setState({currentPage: <DetailDokter {...this.props} showListDokter={this.showListDokter}  />})
+    showDokterDetail = (data) => {
+        this.setState({currentPage: <DetailDokter {...this.props} doctorData={data} showListDokter={this.showListDokter} {...this.props} />})
     };
 
     showListDokter = () => {
