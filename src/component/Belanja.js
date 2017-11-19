@@ -6,7 +6,6 @@ import SearchBar from 'material-ui-search-bar';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import FontIcon from 'material-ui/FontIcon';
-import DatePicker from 'material-ui/DatePicker';
 import Subheader from 'material-ui/Subheader';
 import {GridList, GridTile} from 'material-ui/GridList';
 import {
@@ -35,7 +34,7 @@ const styles = {
   },
 };
 
-class ShoppingGrid extends React.Component {
+export class ShoppingGrid extends React.Component {
 
   constructor(props) {
     super(props);
@@ -114,7 +113,7 @@ class KeranjangBelanja extends React.Component {
           <ShoppingGrid />
 		      </div>
 		      <br />
-		      <NavLink to="/order"><RaisedButton primary={true} label="Checkout" labelColor="white" style={{margin:12}} /></NavLink>
+		      <NavLink to="/order"><RaisedButton primary={true} label="Checkout" disabled={shopping.length==0} labelColor="white" style={{margin:12}} /></NavLink>
 		      <NavLink to="/farmasi"><RaisedButton primary={true} label="Back" labelColor="white" style={{margin:12}} /></NavLink>
           </div>
         );

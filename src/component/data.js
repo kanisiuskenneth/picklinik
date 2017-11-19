@@ -5,8 +5,6 @@ import panadol from '../res/images/panadol.jpg';
 
 export var shopping = [];
 
-export var indexList = [];
-
 export var DATA = [{
   "title": "Kapsul Bodrex",
   "url" : bodrex,
