@@ -1,13 +1,13 @@
 {
-  "main.css": "static/css/main.ec60f60d.css",
-  "main.css.map": "static/css/main.ec60f60d.css.map",
-  "main.js": "static/js/main.465a4a92.js",
-  "main.js.map": "static/js/main.465a4a92.js.map",
+  "main.css": "static/css/main.97af932d.css",
+  "main.css.map": "static/css/main.97af932d.css.map",
+  "main.js": "static/js/main.130a9af5.js",
+  "main.js.map": "static/js/main.130a9af5.js.map",
   "static/media/1_widget_john-doe.png": "static/media/1_widget_john-doe.1acc3229.png",
-  "static/media/Flaticon.eot": "static/media/Flaticon.cbdd0066.eot",
-  "static/media/Flaticon.svg": "static/media/Flaticon.f1391cf2.svg",
-  "static/media/Flaticon.ttf": "static/media/Flaticon.e2c7f5a7.ttf",
-  "static/media/Flaticon.woff": "static/media/Flaticon.11ffda24.woff",
+  "static/media/Flaticon.eot": "static/media/Flaticon.13f2d2d8.eot",
+  "static/media/Flaticon.svg": "static/media/Flaticon.aebad21a.svg",
+  "static/media/Flaticon.ttf": "static/media/Flaticon.51691747.ttf",
+  "static/media/Flaticon.woff": "static/media/Flaticon.4ce98eb1.woff",
   "static/media/MaterialIcons-Regular.eot": "static/media/MaterialIcons-Regular.e79bfd88.eot",
   "static/media/MaterialIcons-Regular.ttf": "static/media/MaterialIcons-Regular.a37b0c01.ttf",
   "static/media/MaterialIcons-Regular.woff": "static/media/MaterialIcons-Regular.012cf6a1.woff",
@@ -72,5 +72,8 @@
   "static/media/Roboto-ThinItalic.ttf": "static/media/Roboto-ThinItalic.11b5cc95.ttf",
   "static/media/Roboto-ThinItalic.woff": "static/media/Roboto-ThinItalic.58829329.woff",
   "static/media/Roboto-ThinItalic.woff2": "static/media/Roboto-ThinItalic.8a2c1a5d.woff2",
-  "static/media/logo.png": "static/media/logo.2b2fe2b7.png"
+  "static/media/antangin.png": "static/media/antangin.ca650926.png",
+  "static/media/bodrex.jpg": "static/media/bodrex.a2cb4f39.jpg",
+  "static/media/logo.png": "static/media/logo.2b2fe2b7.png",
+  "static/media/panadol.jpg": "static/media/panadol.13366cef.jpg"
 }
