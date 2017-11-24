@@ -1,26 +1,10 @@
 import React from 'react';
-import TextField from 'material-ui/TextField'
-import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
-import SearchBar from 'material-ui-search-bar';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
-import FontIcon from 'material-ui/FontIcon';
 import Checkbox from 'material-ui/Checkbox';
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
-import {
-  Route,
-  NavLink,
-  HashRouter
-} from "react-router-dom";
-import {
-  Step,
-  Stepper,
-  StepLabel,
-  StepButton,
-  StepContent,
-} from 'material-ui/Stepper';
+import {NavLink} from "react-router-dom";
+import {Step, StepButton, StepContent, Stepper,} from 'material-ui/Stepper';
 
 import {ShoppingGrid} from './Belanja';
 
@@ -126,6 +110,15 @@ class VerticalLinear extends React.Component {
 
     return (
       <div style={{margin: '12px 0'}}>
+          {step > 0 && (
+              <FlatButton
+                  label="Back"
+                  disableTouchRipple={true}
+                  disableFocusRipple={true}
+                  onClick={this.handlePrev}
+              />
+          )}
+
         <RaisedButton
           label={stepIndex === 2 ? 'Confirm' : 'Next'}
           disabled={stepIndex === 2 ? !this.state.checked : false}
@@ -135,14 +128,7 @@ class VerticalLinear extends React.Component {
           onClick={this.handleNext}
           style={{marginRight: 12}}
         />
-        {step > 0 && (
-          <FlatButton
-            label="Back"
-            disableTouchRipple={true}
-            disableFocusRipple={true}
-            onClick={this.handlePrev}
-          />
-        )}
+
       </div>
     );
   }
@@ -168,7 +154,7 @@ class VerticalLinear extends React.Component {
           </Step>
           <Step>
             <StepButton onClick={() => this.setState({stepIndex: 1})}>
-              Masukkan Alamat Pembayaran
+              Masukkan Alamat Pengiriman
             </StepButton>
             <StepContent>
               <textarea defaultValue={alamatUser} style={styles.teksArea}></textarea>
@@ -180,7 +166,6 @@ class VerticalLinear extends React.Component {
               Konfirmasi Pemesanan
             </StepButton>
             <StepContent>
-              <h2>Jumlah Pembayaran</h2>
               <ShoppingGrid />
               <CekList nama="Saya setuju dengan ketentuan yang berlaku" onCheck={this.updateCheck.bind(this)}></CekList>
               {this.renderStepActions(2)}

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Table, TableBody, TableHeader, TableRow, TableRowColumn} from 'material-ui/Table';
-import {green500, grey500, green100} from 'material-ui/styles/colors';
+import {green100, green500, grey500} from 'material-ui/styles/colors';
 import FlatButton from 'material-ui/FlatButton';
 
 

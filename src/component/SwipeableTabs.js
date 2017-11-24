@@ -1,5 +1,5 @@
 import React from 'react';
-import {Tabs, Tab} from 'material-ui/Tabs';
+import {Tab, Tabs} from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
 import FontIcon from 'material-ui/FontIcon';
 
@@ -9,11 +9,7 @@ import JadwalPage from './JadwalPage';
 import FarmasiPage from './FarmasiPage';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 
-import {
-  Route,
-  NavLink,
-  HashRouter
-} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 const styles = {
     headline: {
@@ -42,6 +38,13 @@ export default class SwipeableTabs extends React.Component {
         this.setState({slideIndex: this.getIndexFromPath(this.props.location.pathname)});
         this.props.handleTitleChange(this.getTitleFromIndex(this.state.slideIndex));
         this.handleCartVisibility(this.getIndexFromPath(this.props.location.pathname))
+        this.props.history.listen((location)=> {
+            if(location.pathname === '/farmasi') {
+                this.handleCartVisibility(3);
+            } else {
+                this.handleCartVisibility(1)
+            }
+        })
     }
 
     handleCartVisibility = (value) => {
@@ -144,7 +147,7 @@ export default class SwipeableTabs extends React.Component {
                 </SwipeableViews>
                 <NavLink to="/belanja">
                     <FloatingActionButton style={{position: 'fixed', bottom: 20, right: 20, visibility: this.state.cartVisibility,
-                    opacity: this.state.cartOpacity}}>
+                        opacity: this.state.cartOpacity}}>
                       <FontIcon className={"material-icons"}>shopping_cart</FontIcon>
                     </FloatingActionButton>
                 </NavLink>

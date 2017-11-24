@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import {green500, brown500} from 'material-ui/styles/colors';
+import {brown500, green500} from 'material-ui/styles/colors';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import AppBar from 'material-ui/AppBar';

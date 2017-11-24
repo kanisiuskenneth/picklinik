@@ -1,25 +1,16 @@
 import React from 'react';
-import TextField from 'material-ui/TextField'
-import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
 import SearchBar from 'material-ui-search-bar';
-import RaisedButton from 'material-ui/RaisedButton';
-import FontIcon from 'material-ui/FontIcon';
-import DatePicker from 'material-ui/DatePicker';
-import Subheader from 'material-ui/Subheader';
 import IconButton from 'material-ui/IconButton';
 import {GridList, GridTile} from 'material-ui/GridList';
-import {grey50, green500} from 'material-ui/styles/colors'
-import {
-  Route,
-  NavLink,
-  HashRouter
-} from "react-router-dom";
-
+import {grey50} from 'material-ui/styles/colors'
+import {HashRouter, Route} from "react-router-dom";
+import Dialog from "material-ui/Dialog";
+import FlatButton from 'material-ui/FlatButton'
 import KeranjangBelanja from './Belanja';
 import Order from './Order';
 
-import {shopping, DATA} from './data';
+
+import {DATA, shopping} from './data';
 
 var searching = [];
 var searchList = [];
@@ -78,15 +69,60 @@ class ProductGrid extends React.Component {
 }
 
 class BuyButton extends React.Component {
+    state = {
+        open: false,
+        qty: 1,
+    }
+
+    handleChange = (e) => {
+        this.setState({qty: e.target.value})
+    };
+
 
   handleClick(data) {
-    shopping.push(data);
+      this.setState({open: true});
+  }
+
+  handleClose = () => {
+        this.setState({open: false});
+  }
+
+  handleSubmit = () => {
+      shopping.push({...this.props.shopping, qty: this.state.qty});
+      this.setState({open: false});
+
   }
 
   render() {
-    
+      const actions = [
+          <FlatButton
+              label="Batal"
+              primary={true}
+              onClick={this.handleClose}
+          />,
+          <FlatButton
+              label="Beli"
+              primary={true}
+              keyboardFocused={true}
+              onClick={this.handleSubmit}
+          />,
+      ];
     return (
-        <IconButton iconStyle={{color: grey50}} iconClassName={'flaticon-add-to-shopping-cart'} onClick={() => this.handleClick(this.props.shopping)} />
+        <div>
+            <IconButton iconStyle={{color: grey50}} iconClassName={'flaticon-add-to-shopping-cart'} onClick={() => this.handleClick(this.props.shopping)} />
+            <Dialog
+                title="Masukkan Jumlah"
+                actions={actions}
+                modal={false}
+                open={this.state.open}
+                onRequestClose={this.handleClose}
+            >
+                <div style={{width: '100%', display: 'flex', justifyContent: 'center', alignContent: 'center', alignItems: 'center', marginTop: 5}}>
+                    <input type={'number'} name="numfield" style={{width: 50, height: 30, textAlign: 'center'}} value={this.state.qty} onChange={this.handleChange} min={1} />
+                </div>
+
+            </Dialog>
+        </div>
     );
     
   }

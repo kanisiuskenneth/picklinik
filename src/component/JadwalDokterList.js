@@ -3,11 +3,11 @@ import Avatar from 'material-ui/Avatar';
 import {List, ListItem} from 'material-ui/List';
 import RaisedButton from 'material-ui/RaisedButton';
 import defaultImage from '../res/images/default-avatar.png';
-import johnDoe from '../res/images/1_widget_john-doe.png';
 import CircularProgress from 'material-ui/CircularProgress'
 import firebase from 'firebase';
 import MaterialSearchBar from 'material-ui-search-bar';
 import * as uuid from 'uuid/v4'
+
 class JadwalDokterList extends React.Component {
     state = {
         searchState: '',

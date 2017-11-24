@@ -98,6 +98,7 @@ class JadwalKlinik extends React.Component {
         return(
             <div>
                 <h2 style={{margin: 5}}>Jadwal Klinik</h2>
+                <h4 style={{margin: 5, fontWeight: 5, }}>Waktu layanan 07.00-16.00</h4>
                 <div
                     style={{width: window.innerWidth-10, height: 390, overflow: 'scroll'}}
                 >

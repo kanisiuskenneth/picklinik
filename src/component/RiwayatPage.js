@@ -2,9 +2,7 @@ import React from 'react';
 import firebase from 'firebase';
 import CircularProgress from 'material-ui/CircularProgress'
 import Paper from 'material-ui/Paper'
-import {Table, TableBody, TableHeader, TableRow, TableRowColumn, TableHeaderColumn} from 'material-ui/Table';
-import {green500, grey500, green100} from 'material-ui/styles/colors';
-import FlatButton from 'material-ui/FlatButton';
+import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 import * as uuid from 'uuid/v4'
 
 const styles = {
@@ -18,13 +16,13 @@ class MedicalRecordTable extends React.Component {
             let x = new Date(item.date);
             arr.push(
                 <TableRow key={uuid()} selectable={false} >
-                    <TableRowColumn style={styles.cell}>{x.getDate()}/{x.getMonth()+1}/{x.getFullYear()}</TableRowColumn>
-                    <TableRowColumn style={styles.cell}>{item.type}</TableRowColumn>
-                    <TableRowColumn style={styles.cell}>{item.diagnose}</TableRowColumn>
-                    <TableRowColumn style={styles.cell}>
+                    <TableRowColumn key={uuid()} style={styles.cell}>{x.getDate()}/{x.getMonth()+1}/{x.getFullYear()}</TableRowColumn>
+                    <TableRowColumn key={uuid()} style={{...styles.cell,...{width: 40}}}>{item.type}</TableRowColumn>
+                    <TableRowColumn key={uuid()} style={styles.cell}>{item.diagnose}</TableRowColumn>
+                    <TableRowColumn key={uuid()} style={styles.cell}>
                         <ol style={{marginLeft: '-1rem'}}>
                         {item.medicines.map((item)=>
-                            <li>{item}</li>
+                            <li key={uuid()}>{item}</li>
                         )}
                         </ol>
                     </TableRowColumn>
@@ -35,7 +33,7 @@ class MedicalRecordTable extends React.Component {
     }
     render() {
         return(
-        <Table selectable={false}>
+        <Table selectable={false} wrapperStyle={{width: '97vw'}}>
             <TableHeader
                 displaySelectAll={false}
                 adjustForCheckbox={false}
@@ -44,7 +42,7 @@ class MedicalRecordTable extends React.Component {
                 >
                 <TableRow>
                     <TableHeaderColumn style={styles.cell}>Tanggal</TableHeaderColumn>
-                    <TableHeaderColumn style={styles.cell}>Poli</TableHeaderColumn>
+                    <TableHeaderColumn style={{...styles.cell,...{width: 40}}}>Poli</TableHeaderColumn>
                     <TableHeaderColumn style={styles.cell}>Diagnosis</TableHeaderColumn>
                     <TableHeaderColumn style={styles.cell}>Obat</TableHeaderColumn>
                 </TableRow>

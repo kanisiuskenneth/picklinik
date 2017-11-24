@@ -5,7 +5,6 @@ import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import defaultImage from '../res/images/default-avatar.png';
 import FontIcon from 'material-ui/FontIcon'
-import {Table, TableBody, TableHeader, TableRow, TableRowColumn} from 'material-ui/Table';
 import Timetable from "./Timetable/Timetable";
 
 const date = new Date();

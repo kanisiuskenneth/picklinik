@@ -1,13 +1,12 @@
 import React from 'react';
 import '../App.css';
-import {green500,grey50, green100} from 'material-ui/styles/colors'
-import logo from '../res/images/logo.png';
+import {green500, grey50} from 'material-ui/styles/colors'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import Paper from 'material-ui/Paper';
 import CircularProgress from 'material-ui/CircularProgress';
 import FontIcon from 'material-ui/FontIcon';
 import RaisedButton from 'material-ui/RaisedButton';
+
 const muiTheme = getMuiTheme({
     palette: {
         primary1Color: grey50,
@@ -51,7 +50,7 @@ class BookingInProgress extends React.Component {
         circularValue: 100,
         buttonLabel: "Batalkan Pesanan",
         done: {visibility: 'hidden'},
-        iconClass: 'flaticon-open-book',
+        iconClass: 'flaticon-stethoscope',
     };
 
     handleButton = () => {
