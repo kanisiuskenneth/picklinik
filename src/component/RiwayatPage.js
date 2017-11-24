@@ -33,7 +33,7 @@ class MedicalRecordTable extends React.Component {
     }
     render() {
         return(
-        <Table selectable={false} wrapperStyle={{width: '97vw'}}>
+        <Table selectable={false} wrapperStyle={{width: '95%', margin: 'auto'}}>
             <TableHeader
                 displaySelectAll={false}
                 adjustForCheckbox={false}

@@ -21,7 +21,7 @@ const styles = {
     flexWrap: 'wrap',
     justifyContent: 'space-around',
       alignContent: 'top',
-    width: '95vw',
+    width: '96%',
     margin: 'auto',
     padding: '5px',
   },
@@ -142,7 +142,7 @@ class SearchResult extends React.Component {
 
   click(idx) {
     shopping.push(<p>{DATA[idx].title}</p>);
-    shopping.push(<img src={DATA[idx].url} alt={DATA[idx].title} width={200} height={100}></img>);
+    shopping.push(<img src={DATA[idx].url} alt={DATA[idx].title} width={200} height={100} />);
     shopping.push(<p>{DATA[idx].price}</p>);
     console.log('click');
   }

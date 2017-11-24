@@ -7,7 +7,7 @@ import AntreanPage from './AntreanPage';
 import RiwayatPage from './RiwayatPage';
 import JadwalPage from './JadwalPage';
 import FarmasiPage from './FarmasiPage';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
+import FarmasiPageActions from './FarmasiPageActions';
 
 import {NavLink} from "react-router-dom";
 
@@ -129,6 +129,7 @@ export default class SwipeableTabs extends React.Component {
                 />
             </Tabs>
                 <SwipeableViews
+                    style={{maxWidth: 600, margin: 'auto'}}
                     index={this.state.slideIndex}
                     onChangeIndex={this.handleChange}
                 >
@@ -145,12 +146,7 @@ export default class SwipeableTabs extends React.Component {
                         <FarmasiPage {...this.props}/>
                     </div>
                 </SwipeableViews>
-                <NavLink to="/belanja">
-                    <FloatingActionButton style={{position: 'fixed', bottom: 20, right: 20, visibility: this.state.cartVisibility,
-                        opacity: this.state.cartOpacity}}>
-                      <FontIcon className={"material-icons"}>shopping_cart</FontIcon>
-                    </FloatingActionButton>
-                </NavLink>
+                <FarmasiPageActions cartVisibility = {this.state.cartVisibility} cartOpacity={this.state.cartOpacity} {...this.props} />
             </div>
         );
     }

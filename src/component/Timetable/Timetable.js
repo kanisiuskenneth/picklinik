@@ -115,7 +115,7 @@ class Timetable extends React.Component {
     render() {
         return (
             <Table
-                wrapperStyle={{width: 450, overflow: 'scroll'}}
+                wrapperStyle={{width: 450, overflow: 'scroll', margin: 'auto'}}
                 fixedHeader= {true}
                 fixedFooter={true}
             >

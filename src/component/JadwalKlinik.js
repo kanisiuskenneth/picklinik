@@ -6,7 +6,8 @@ import Dialog from 'material-ui/Dialog';
 import CircularProgress from 'material-ui/CircularProgress';
 import * as firebase from 'firebase';
 import Timetable from './Timetable/Timetable'
-
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem'
 const date = new Date();
 class JadwalKlinik extends React.Component {
     state = {
@@ -15,6 +16,7 @@ class JadwalKlinik extends React.Component {
         dayClicked: null,
         timeClicked: null,
         sorryDialogOpen: false,
+        jenisPoli: 'Poli Umum',
     };
     handleCellClick = (row, col) => {
         let time = row+7;
@@ -30,6 +32,7 @@ class JadwalKlinik extends React.Component {
         }
     };
 
+    handlePoli = (event, index, jenisPoli) => this.setState({jenisPoli});
 
     handleClose = () => {
         this.setState({open: false, sorryDialogOpen: false});
@@ -76,7 +79,15 @@ class JadwalKlinik extends React.Component {
         }
     };
     componentDidMount() {
+        try {
+            let localData= localStorage.getItem("ClinicScheduleData")
+            this.setState({data: JSON.parse(localData)});
+        } catch (e){
+            console.log(e)
+        }
+
         firebase.database().ref('clinic-schedule').on("value", (snapshot) => {
+            localStorage.setItem("ClinicScheduleData", JSON.stringify(snapshot.val()));
             this.setState({data: snapshot.val()});
         });
     }
@@ -100,7 +111,7 @@ class JadwalKlinik extends React.Component {
                 <h2 style={{margin: 5}}>Jadwal Klinik</h2>
                 <h4 style={{margin: 5, fontWeight: 5, }}>Waktu layanan 07.00-16.00</h4>
                 <div
-                    style={{width: window.innerWidth-10, height: 390, overflow: 'scroll'}}
+                    style={{width: '95%', margin:'auto', height: 390, overflow: 'scroll'}}
                 >
                     {this.getData()}
 
@@ -122,7 +133,16 @@ class JadwalKlinik extends React.Component {
                         open={this.state.open}
                         onRequestClose={this.handleClose}
                     >
+
+
                         Apakah anda ingin memesan layanan klinik pada jam {this.state.timeClicked} hari {this.state.dayClicked}?
+                        <br/>
+                        <SelectField value={this.state.jenisPoli} onChange={this.handlePoli} floatingLabelText={"Pilih Poli"}
+                                     style={{width: '100%', textAlign: 'left', margin: 'auto'}} floatingLabelStyle={{whiteSpace: 'nowrap'}}>
+                            <MenuItem value='Poli Umum' primaryText="Poli Umum" />
+                            <MenuItem value='Poli Gigi' primaryText="Poli Gigi" />
+                            <MenuItem value='Poli THT' primaryText="Poli THT" />
+                        </SelectField>
                     </Dialog>
                     <Dialog
                         title="Mohon Maaf"

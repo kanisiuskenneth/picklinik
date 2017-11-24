@@ -10,21 +10,24 @@ import {
     Stepper,
     StepButton,
 } from 'material-ui/Stepper';
-import SwipeableViews from 'react-swipeable-views';
+import Dialog from 'material-ui/Dialog';
+import {List, ListItem} from 'material-ui/List';
+import SelectField from 'material-ui/SelectField';
 import TextField from 'material-ui/TextField';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import Checkbox from 'material-ui/Checkbox';
 import ActionFavorite from 'material-ui/svg-icons/action/favorite';
 import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
+import ActionSchedule from 'material-ui/svg-icons/action/schedule';
+import ActionDateRange from 'material-ui/svg-icons/action/date-range';
+import ContentBackspace from 'material-ui/svg-icons/content/backspace';
+import MapsLocalHospital from 'material-ui/svg-icons/maps/local-hospital';
 import AssignmentIcon from 'material-ui/svg-icons/action/assignment';
 import PeopleOutlineIcon from 'material-ui/svg-icons/social/people-outline';
-import ContentBackspace from 'material-ui/svg-icons/content/backspace';
 import Visibility from 'material-ui/svg-icons/action/visibility';
 import VisibilityOff from 'material-ui/svg-icons/action/visibility-off';
 import Toggle from 'material-ui/Toggle';
-import ExpandTransition from 'material-ui/internal/ExpandTransition';
-
 import '../res/AntreanPage.css';
 
 const styles = {
@@ -90,26 +93,46 @@ class AntreanPage extends React.Component {
         super(props);
 
         this.state = {
-            slideIndex: 0,
+            stepIndex: 0,
             jenisPendaftaran: 2,
+            isAntre: 0,
+            open: false,
+            availJenis: false,
+            availData: false,
+            availKeluhan: false,
+            jenisPoli: 'Poli Umum',
             id: '192-168-1-1',
             nama: 'Via Vallen',
             ttl: '1 Oktober 1990',
-            jamPeriksa: 8,
+            jamPeriksa: 'Sekarang',
             nomorAntrean: 'Q28',
             isMenunggu: true,
             sisaPasien: 5,
             rerataWaktu: 10,
             estimasiWaktu: this.rerataWaktu * this.sisaPasien,
-            checked: false,
-            stepIndex: 0,
-            loading: false,
-            open: true,
-            inQueue: false,
         };
     }
 
+    handleOpen = () => {
+        this.setState({open: true});
+    };
+
+    handleClose = () => {
+        this.setState({open: false});
+    };
+
+    handleBatal = (slideIndex) => {
+        this.setState({isAntre: 0})
+        this.setState({stepIndex: 0})
+        this.setState({open: false})
+        this.setState({availJenis: false})
+        this.setState({availData: false})
+        this.setState({availKeluhan: false})
+    };
+
+
     handleJam = (event, index, jamPeriksa) => this.setState({jamPeriksa});
+    handlePoli = (event, index, jenisPoli) => this.setState({jenisPoli});
 
     updateCheck() {
         this.setState((oldState) => {
@@ -136,30 +159,30 @@ class AntreanPage extends React.Component {
         } else {
             this.setState({slideIndex: 0});
         }
-    }
+    };
 
     tipeDaftar = () => {
 
         this.setState({stepIndex: 2})
         this.setState({slideIndex: 2})
         this.setState({jenisPendaftaran: 2})
-    }
+    };
 
     tipeDaftarr = () => {
 
         this.setState({stepIndex: 2})
         this.setState({slideIndex: 3})
         this.setState({jenisPendaftaran: 3})
-    }
+    };
 
     finishForm = () => {
         this.setState({stepIndex: 3})
         this.setState({slideIndex: 4})
-    }
+    };
 
     submitForm = () => {
-        this.setState({inQueue: true})
-    }
+        this.setState({isAntre: true})
+    };
     handlePrev = () => {
         const {stepIndex} = this.state;
         if (stepIndex > 0) {
@@ -167,6 +190,7 @@ class AntreanPage extends React.Component {
         }
     };
     getContent() {
+
         console.log(this.state.stepIndex)
         switch (this.state.stepIndex) {
             case 0:
@@ -180,7 +204,10 @@ class AntreanPage extends React.Component {
                             Anda tidak sedang dalam antrean poliklinik
                             <br/>
                         </h4>
-
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
                         <div style={{flex: 1, marginTop: '5%'}}>
                             <RaisedButton
                                 label="Mendaftar Antrean"
@@ -192,15 +219,21 @@ class AntreanPage extends React.Component {
             case 1:
                 return(
                     <div>
-                        <div style={{flex: 1, marginTop: '10%'}}>
+                        <div style={{flex: 1, marginTop: '5%'}}>
+                            <h3>
+                                Siapa yang akan diperiksa?
+                            </h3>
+                            <br />
+                            <br/>
+                            <br/>
                             <RaisedButton
-                                label="Pasien Lama"
+                                label="Diri sendiri"
                                 onClick={this.tipeDaftar}
                                 style={{marginRight: '10%'}}
                             />
 
                             <RaisedButton
-                                label="Pasien Baru"
+                                label="Orang lain"
                                 onClick={this.tipeDaftarr}
                             />
                         </div>
@@ -210,51 +243,40 @@ class AntreanPage extends React.Component {
                 if(this.state.jenisPendaftaran === 3)
                     return(
                         <div>
-                            <div>
-                                <TextField
-                                    floatingLabelText="Nama"
-                                /> <br />
-
-                                <TextField
-                                    floatingLabelText="Tanggal Lahir"
-                                /> <br />
-
-                                <DropDownMenu maxHeight={300} value={this.state.jamPeriksa} onChange={this.handleJam}>
-                                    {items}
-                                </DropDownMenu> <br />
-
-                                <div style={{flex: 1, marginTop: '2%'}}>
-                                    <RaisedButton label="Submit" onClick={this.finishForm}/>
-                                </div>
-                            </div>
-                        </div>);
-                else
-                    return(
-                        <div>
-                            <TextField
-                                floatingLabelText="ID"
-                                disabled={true}
-                                defaultValue={this.state.id}
-                            /><br />
-
                             <TextField
                                 floatingLabelText="Nama"
-                                disabled={true}
-                                defaultValue={this.state.nama}
                             /> <br />
 
                             <TextField
                                 floatingLabelText="Tanggal Lahir"
-                                disabled={true}
-                                defaultValue={this.state.ttl}
                             /> <br />
 
-                            <DropDownMenu maxHeight={300} value={this.state.jamPeriksa} onChange={this.handleJam}>
-                                {items}
-                            </DropDownMenu>
-                            <br />
+
                             <div style={{flex: 1, marginTop: '2%'}}>
-                                <RaisedButton label="Submit" onClick={this.finishForm}/>
+                                <RaisedButton label="Kirim" onClick={this.finishForm}/>
+                            </div>
+                        </div>
+                    );
+                else
+                    return(
+                        <div>
+
+                            <div>
+
+                                <TextField
+                                    floatingLabelText="Nama"
+                                    defaultValue={this.state.nama}
+                                /> <br />
+
+                                <TextField
+                                    floatingLabelText="Tanggal Lahir"
+                                    defaultValue={this.state.ttl}
+                                /> <br />
+
+                            </div>
+
+                            <div style={{flex: 1, marginTop: '2%'}}>
+                                <RaisedButton label="Kirim" onClick={this.finishForm}/>
                             </div>
                         </div>);
                 break;
@@ -262,18 +284,85 @@ class AntreanPage extends React.Component {
             case 3:
                 return(
                     <div>
-                        <TextField
-                            multiLine={true}
-                            rows={4}
-                            rowsMax={10}
-                            hintText="Deskripsikan keluhan Anda"
+                        <SelectField maxHeight={300} value={this.state.jamPeriksa} onChange={this.handleJam}
+                        floatingLabelText={"Pilih Waktu"} style={{width: 150, textAlign: 'left'}} floatingLabelStyle={{whiteSpace: 'nowrap'}}>
+                            <MenuItem value={'Sekarang'} primaryText={"Sekarang"}/>
+                            <MenuItem value='07.00' primaryText="Pukul 07.00" />
+                            <MenuItem value='08.00' primaryText="Pukul 08.00" />
+                            <MenuItem value='09.00' primaryText="Pukul 09.00" />
+                            <MenuItem value='10.00' primaryText="Pukul 10.00" />
+                            <MenuItem value='11.00' primaryText="Pukul 11.00" />
+                            <MenuItem value='12.00' primaryText="Pukul 12.00" />
+                            <MenuItem value='13.00' primaryText="Pukul 13.00" />
+                            <MenuItem value='14.00' primaryText="Pukul 14.00" />
+                            <MenuItem value='15.00' primaryText="Pukul 15.00" />
+                            <MenuItem value='16.00' primaryText="Pukul 16.00" />
+                        </SelectField>
+                        &nbsp;
+                        <SelectField value={this.state.jenisPoli} onChange={this.handlePoli} floatingLabelText={"Pilih Poli"}
+                                      style={{width: 150, textAlign: 'left'}} floatingLabelStyle={{whiteSpace: 'nowrap'}}>
+                                    <MenuItem value='Poli Umum' primaryText="Poli Umum" />
+                                    <MenuItem value='Poli Gigi' primaryText="Poli Gigi" />
+                                    <MenuItem value='Poli THT' primaryText="Poli THT" />
+                                </SelectField>
+                                <br />
+                        <TextField floatingLabelText={"Pilih Dokter (Opsional)"}/>
+                                <TextField
+                            style={{flex: 1, marginTop: '5%'}}
+                    multiLine={true}
+                    rows={1}
+                    rowsMax={10}
+                    hintText="Deskripsikan keluhan Anda"
                         /><br />
 
-                        <RaisedButton label="Finish" onClick={this.submitForm}/>
-                    </div>
+                        <RaisedButton label="Kirim" onClick={this.submitForm} style={{flex: 1, marginTop: '5%'}}/>
+                </div>
                 );
+
+        }
+    }
+    getStepContent(stepIndex) {
+        switch (stepIndex) {
+            case 1:
+                this.setState({slideIndex: 1})
+                this.setState({completed: 1})
+            case 2:
+                this.setState({slideIndex: 2})
+                this.setState({completed: 2})
+            case 3:
+                this.setState({slideIndex: 3})
+                this.setState({completed: 2})
             case 4:
-                return(
+                this.setState({slideIndex: 4})
+                this.setState({completed: 3})
+            case 5:
+                this.setState({slideIndex: 5})
+                this.setState({completed: 4})
+        }
+    }
+
+
+    render() {
+        const actions = [
+            <RaisedButton
+                label="Kembali"
+                primary={true}
+                onClick={this.handleClose}
+                style={{marginRight: 12}}
+            />,
+            <RaisedButton
+                label="Ya, Batalkan"
+                primary={true}
+                onClick={this.handleBatal}
+            />,
+        ];
+
+        const {stepIndex} = this.state;
+        const contentStyle = {margin: '0 16px'};
+
+        if(this.state.isAntre) {
+            return(
+                <div style={styles.slide}>
                     <div>
                         <Badge
                             badgeContent={this.state.sisaPasien}
@@ -303,78 +392,37 @@ class AntreanPage extends React.Component {
                             </IconButton>
                         </Badge>
 
+                        <List>
+                            <ListItem
+                                primaryText={this.state.jenisPoli}
+                                leftIcon={<MapsLocalHospital />}
+                                disabled={true}
+                                style={{flex:1, textAlign: 'center', width: 125, margin: 'auto'}}
+                            />
+                            <ListItem
+                                primaryText={this.state.jamPeriksa}
+                                leftIcon={<ActionDateRange />}
+                                disabled={true}
+                                style={{flex:1, textAlign: 'center', width: 125, margin: 'auto'}}
+                            />
+                        </List>
+
                         <Checkbox
-                            style={{flex:1, marginTop: '5%', marginLeft:'-38%', maxWidth:350}}
+                            style={{flex:1, textAlign: 'center', width: 'fit-content', whiteSpace: 'nowrap', margin: 'auto'}}
                             label="Saya sedang menunggu di poliklinik"
                         />
                     </div>
-                );
-
-        }
-    }
-    getStepContent(stepIndex) {
-        switch (stepIndex) {
-            case 1:
-                this.setState({slideIndex: 1})
-                this.setState({completed: 1})
-            case 2:
-                this.setState({slideIndex: 2})
-                this.setState({completed: 2})
-            case 3:
-                this.setState({slideIndex: 3})
-                this.setState({completed: 2})
-            case 4:
-                this.setState({slideIndex: 4})
-                this.setState({completed: 3})
-            case 5:
-                this.setState({slideIndex: 5})
-                this.setState({completed: 4})
-        }
-    }
-
-
-    render() {
-
-        const {stepIndex} = this.state;
-        const contentStyle = {margin: '0 16px'};
-        if(this.state.inQueue) {
-            return(
-                <div>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <Badge
-                        badgeContent={this.state.sisaPasien}
-                        primary={true}
-                        badgeStyle={{padding: 10, fontSize: 20, left: 80, top: 10}}
-                        style={{flex:1, marginRight: '4%'}}
-                    >
-                        <IconButton
-                            tooltip="Sisa Pasien"
-                            iconStyle={styles.largeIcon}
+                    <div style={{marginTop:'5%'}}>
+                        <RaisedButton label="Batalkan Pemeriksaan" onClick={this.handleOpen} />
+                        <Dialog
+                            actions={actions}
+                            modal={false}
+                            open={this.state.open}
+                            onRequestClose={this.handleClose}
                         >
-                            <PeopleOutlineIcon />
-                        </IconButton>
-                    </Badge>
-
-                    <Badge
-                        badgeContent={this.state.nomorAntrean}
-                        secondary={true}
-                        badgeStyle={{padding: 10, fontSize: 20, left: 80, top: 10}}
-                        style={{flex:1, marginRight: '4%'}}
-                    >
-                        <IconButton
-                            tooltip="Nomor Antrean"
-                            iconStyle={styles.largeIcon}
-                        >
-                            <AssignmentIcon />
-                        </IconButton>
-                    </Badge>
-
-                    <Checkbox
-                        style={{flex:1, marginTop: '5%', marginLeft:'0', width:'99vw', textAlign: 'center'}}
-                        label="Saya sedang menunggu di poliklinik"
-                    />
+                            Apakah Anda yakin ingin membatalkan pemeriksaan?
+                        </Dialog>
+                    </div>
                 </div>
             );
         } else

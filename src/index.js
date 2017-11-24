@@ -7,7 +7,7 @@ import {HashRouter, Route, Switch} from 'react-router-dom'
 import firebase from "firebase";
 import LoginPage from './LoginPage';
 import BookingInProgress from './component/BookingInProgress'
-
+import PrescriptionInProgress from './component/PrescriptionInProgress'
 var config = {
     apiKey: "AIzaSyCOf4z8rA3_8xX3Vd0TviwtLy5-mQSxR14",
     authDomain: "picklinik.firebaseapp.com",
@@ -24,6 +24,8 @@ ReactDOM.render(
         <Switch>
             <Route component={LoginPage} exact path={'/login'} />
             <Route component={BookingInProgress} path={'/booking'} />
+            <Route component={PrescriptionInProgress} path={'/processing_prescription'} />
+
             <Route component={App}/>
         </Switch>
     </HashRouter>, document.getElementById('root'));

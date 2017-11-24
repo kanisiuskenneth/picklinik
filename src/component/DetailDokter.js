@@ -110,7 +110,7 @@ class JadwalDokterList extends React.Component {
                 <div>
                 </div>
                 <div
-                    style={{width: window.innerWidth-10, height: 400, overflow: 'scroll'}}
+                    style={{width: '95%',margin: 'auto', height: 400, overflow: 'scroll'}}
                 >
                    <Timetable data={this.props.doctorData.schedule} handleCellClick={this.handleCellClick}/>
                 </div>

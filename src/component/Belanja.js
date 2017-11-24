@@ -14,7 +14,7 @@ const styles = {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
-    width: '95vw',
+    width: '95%',
     margin: 'auto',
     padding: '5px',
   },
@@ -105,7 +105,7 @@ class KeranjangBelanja extends React.Component {
 		      </div>
 		      <br />
 		      <NavLink to="/farmasi"><RaisedButton primary={true} label="Back" labelColor="white" style={{margin:12}} /></NavLink>
-              <NavLink to="/order"><RaisedButton primary={true} label="Checkout" disabled={shopping.length==0} labelColor="white" style={{margin:12}} /></NavLink>
+              <NavLink to="/order"><RaisedButton primary={true} label="Checkout" disabled={!shopping.length} labelColor="white" style={{margin:12}} /></NavLink>
 
           </div>
         );
