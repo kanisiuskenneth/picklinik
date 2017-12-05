@@ -31,8 +31,6 @@ const styles = {
 };
 
 function getParameterByName(name, url) {
-
-
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
     var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
@@ -49,17 +47,22 @@ class BookingInProgress extends React.Component {
         circularProgressMode: "indeterminate",
         circularValue: 100,
         buttonLabel: "Batalkan Pesanan",
-        done: {visibility: 'hidden'},
+        visibility: {visibility: "hidden"},
+        done: false,
         iconClass: 'flaticon-stethoscope',
     };
 
     handleButton = () => {
-      this.props.history.push("/jadwal")
+        if(getParameterByName("fallback")) {
+            this.props.history.push(getParameterByName("fallback")+"?status="+this.state.done)
+        } else {
+            this.props.history.push("/jadwal")
+        }
     };
 
     componentDidMount() {
         sleep(8000).then(() => {
-            this.setState({title: "Pesanan anda telah diterima", done: true, buttonLabel:"Kembali", iconClass: 'flaticon-checked'})
+            this.setState({title: "Pesanan anda telah diterima",visibility: true, done: true, buttonLabel:"Kembali", iconClass: 'flaticon-checked'})
         })
     }
 
@@ -74,7 +77,7 @@ class BookingInProgress extends React.Component {
                         <h3 style={{gridRow: '3/5', gridColumn: '1 / 13', color: 'white', fontWeight: '500', justifySelf: 'center'}}>{this.state.title}</h3>
                         <FontIcon className={this.state.iconClass} style={styles.book}/>
                         <CircularProgress style={styles.book} size={200} mode={"indeterminate"} />
-                        <CircularProgress style={{...styles.book,...this.state.done}} size={200} mode={"determinate"} value={100} hidden/>
+                        <CircularProgress style={{...styles.book,...this.state.visibility}} size={200} mode={"determinate"} value={100} hidden/>
                         <div style={{gridColumn: "1/13", gridRow:"18/19", display: "flex", justifyContent: "center", }}>
 
                         <RaisedButton

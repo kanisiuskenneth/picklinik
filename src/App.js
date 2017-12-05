@@ -6,7 +6,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import AppBar from 'material-ui/AppBar';
 import './res/flaticon/flaticon.css';
 import SwipeableTabs from "./component/SwipeableTabs"
-import 'roboto-fontface';
+import 'roboto-fontface/css/roboto-condensed/roboto-condensed-fontface.css';
 import './res/mui/material-icons.css'
 import IconButton from 'material-ui/IconButton';
 import Drawer from 'material-ui/Drawer';

@@ -102,7 +102,7 @@ class AntreanPage extends React.Component {
             availKeluhan: false,
             jenisPoli: 'Poli Umum',
             id: '192-168-1-1',
-            nama: 'Via Vallen',
+            nama: 'Picklinik Tester',
             ttl: '1 Oktober 1990',
             jamPeriksa: 'Sekarang',
             nomorAntrean: 'Q28',

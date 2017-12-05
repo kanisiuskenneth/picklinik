@@ -25,7 +25,6 @@ ReactDOM.render(
             <Route component={LoginPage} exact path={'/login'} />
             <Route component={BookingInProgress} path={'/booking'} />
             <Route component={PrescriptionInProgress} path={'/processing_prescription'} />
-
             <Route component={App}/>
         </Switch>
     </HashRouter>, document.getElementById('root'));
